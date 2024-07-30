@@ -17,9 +17,9 @@ export default class MessageCreate {
 
 		if (message.author.bot) return;
 
-		const regex = /\b(?!19[89]\d|20[0-2]\d|2030)\d{4}\b/;
-		
-		if (regex.test(message.content)) {
+		const regex = "/^(?!191[4-9]|19[2-9]\d|200\d|201\d|202[0-8])\d{4}$"
+
+		if (message.content.match(regex)) {
                  const component = {
 				type: 1,
 				components: [
