@@ -42,6 +42,7 @@ export default class DGClient extends Client {
 		global: typeof global;
 		users: typeof users;
 		staff: typeof staff;
+		giveaway: typeof global;
 	};
 	cache: {
 		towns: CityInfo[],
