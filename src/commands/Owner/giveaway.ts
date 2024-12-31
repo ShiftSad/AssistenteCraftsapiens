@@ -221,4 +221,33 @@ export default class giveawayClass extends Command {
     async deleteGiveaway(client: Client, message_id: string, ctx: CommandContext) {
     
     }
+
+    getWinners(
+        participants: { userId: string; username: string }[],
+        winnerCount: number
+    ): { userId: string; username: string }[] {
+        if (winnerCount <= 0) {
+            throw new Error("Winner count must be greater than 0.");
+        }
+    
+        if (participants.length < winnerCount) {
+            throw new Error("Not enough participants to select the specified number of winners.");
+        }
+    
+        const winners: { userId: string; username: string }[] = [];
+        const participantIndexes = new Set<number>();
+    
+        while (winners.length < winnerCount) {
+            // Generate a random index
+            const randomIndex = Math.floor(Math.random() * participants.length);
+    
+            // Ensure the same participant is not chosen twice
+            if (!participantIndexes.has(randomIndex)) {
+                participantIndexes.add(randomIndex);
+                winners.push(participants[randomIndex]);
+            }
+        }
+    
+        return winners;
+    }
 }
