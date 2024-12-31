@@ -39,6 +39,37 @@ export default class giveawayClass extends Command {
                             required: true
                         }
                     ]
+                },
+                {
+                    name: "delete",
+                    description: "Deleta um sorteio",
+                    type: 1,
+                    options: [
+                        {
+                            type: 3,
+                            name: "message_id",
+                            description: "ID da mensagem do sorteio",
+                            required: true
+                        }
+                    ]
+                },
+                {
+                    name: "list",
+                    description: "Lista os sorteios",
+                    type: 1
+                },
+                {
+                    name: "edit",
+                    description: "Edita um sorteio",
+                    type: 1,
+                    options: [
+                        {
+                            type: 3,
+                            name: "message_id",
+                            description: "ID da mensagem do sorteio",
+                            required: true
+                        }
+                    ]
                 }
             ]
         })
